@@ -9,6 +9,12 @@
   <!-- Bootstrap Icons -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css" rel="stylesheet">
   <style>
+    .doughnut-chart-container {
+      position: relative;
+      margin: auto;
+      height: 200px; /* Hauteur réduite */
+      width: 200px;  /* Largeur réduite */
+    }
     .card {
       border: none;
       border-radius: 10px;
@@ -43,6 +49,14 @@
     .bg-info {
       background-color: #17a2b8 !important;
     }
+
+    /* Styles pour les graphiques */
+    .chart-container {
+      position: relative;
+      margin: auto;
+      height: 200px; /* Hauteur réduite pour le Pie Chart */
+      width: 200px;  /* Largeur réduite pour le Pie Chart */
+    }
   </style>
 </head>
 <body>
@@ -50,7 +64,7 @@
   <div class="row">
     <!-- Stylish Cards -->
     <div class="col-md-4 mb-4">
-      <div class="card text-white bg-primary">
+      <div class="card text-white" style="background: linear-gradient(45deg, #007bff, #004085);">
         <div class="card-body">
           <h5 class="card-title"><i class="bi bi-people-fill"></i> Total Customers</h5>
           <p class="card-text">{{ totalCustomers }}</p>
@@ -58,7 +72,7 @@
       </div>
     </div>
     <div class="col-md-4 mb-4">
-      <div class="card text-white bg-success">
+      <div class="card text-white" style="background: linear-gradient(45deg, #17a2b8, #2c3e50);">
         <div class="card-body">
           <h5 class="card-title"><i class="bi bi-wallet-fill"></i> Total Accounts</h5>
           <p class="card-text">{{ totalAccounts }}</p>
@@ -66,7 +80,7 @@
       </div>
     </div>
     <div class="col-md-4 mb-4">
-      <div class="card text-white bg-info">
+      <div class="card text-white" style="background: linear-gradient(45deg, #6a11cb, #2575fc);">
         <div class="card-body">
           <h5 class="card-title"><i class="bi bi-cash-stack"></i> Total Balance</h5>
           <p class="card-text">{{ totalBalance | currency }}</p>
@@ -76,45 +90,28 @@
   </div>
 
   <div class="row">
+    <!-- Doughnut Chart -->
+    <div class="col-md-6 mb-4">
+      <div class="card">
+        <div class="card-header text-black"><i class="bi bi-pie-chart-fill"></i> Operation Types Ratio</div>
+        <div class="card-body">
+          <div class="doughnut-chart-container">
+            <canvas id="doughnutChart"></canvas>
+          </div>
+        </div>
+      </div>
+    </div>
+
     <!-- Bar Chart -->
     <div class="col-md-6 mb-4">
       <div class="card">
-        <div class="card-header"><i class="bi bi-bar-chart-line-fill"></i> Accounts per Customer</div>
+        <div class="card-header text-black"><i class="bi bi-bar-chart-line-fill"></i> Accounts per Customer</div>
         <div class="card-body">
           <canvas id="barChart"></canvas>
         </div>
       </div>
     </div>
 
-    <!-- Doughnut Chart -->
-    <div class="col-md-6 mb-4">
-      <div class="card">
-        <div class="card-header"><i class="bi bi-pie-chart-fill"></i> Operation Types Ratio</div>
-        <div class="card-body">
-          <canvas id="doughnutChart"></canvas>
-        </div>
-      </div>
-    </div>
-
-    <!-- Pie Chart -->
-    <div class="col-md-6 mb-4">
-      <div class="card">
-        <div class="card-header"><i class="bi bi-pie-chart-fill"></i> Account Types Distribution</div>
-        <div class="card-body">
-          <canvas id="pieChart"></canvas>
-        </div>
-      </div>
-    </div>
-
-    <!-- Line Chart -->
-    <div class="col-md-6 mb-4">
-      <div class="card">
-        <div class="card-header"><i class="bi bi-graph-up"></i> Balance Over Time</div>
-        <div class="card-body">
-          <canvas id="lineChart"></canvas>
-        </div>
-      </div>
-    </div>
   </div>
 </div>
 
@@ -135,8 +132,20 @@
         datasets: [{
           label: 'Accounts',
           data: [12, 19, 3, 5, 2],
-          backgroundColor: 'rgba(0, 123, 255, 0.5)',
-          borderColor: 'rgba(0, 123, 255, 1)',
+          backgroundColor: [
+            'rgba(54, 162, 235, 0.6)', // Bleu
+            'rgba(75, 192, 192, 0.6)', // Vert clair
+            'rgba(0, 123, 255, 0.6)',  // Bleu vif
+            'rgba(50, 205, 50, 0.6)',  // Vert
+            'rgba(0, 255, 255, 0.6)'   // Cyan
+          ],
+          borderColor: [
+            'rgba(54, 162, 235, 1)',
+            'rgba(75, 192, 192, 1)',
+            'rgba(0, 123, 255, 1)',
+            'rgba(50, 205, 50, 1)',
+            'rgba(0, 255, 255, 1)'
+          ],
           borderWidth: 1
         }]
       },
@@ -158,49 +167,10 @@
         datasets: [{
           label: 'Operation Types',
           data: [300, 50, 100],
-          backgroundColor: ['rgba(255, 99, 132, 0.5)', 'rgba(54, 162, 235, 0.5)', 'rgba(255, 206, 86, 0.5)'],
-          borderColor: ['rgba(255, 99, 132, 1)', 'rgba(54, 162, 235, 1)', 'rgba(255, 206, 86, 1)'],
+          backgroundColor: ['rgba(255, 99, 132, 0.5)', 'rgba(163,54,235,0.5)', 'rgba(255, 206, 86, 0.5)'],
+          borderColor: ['rgba(255, 99, 132, 1)', 'rgb(163,54,235)', 'rgba(255, 206, 86, 1)'],
           borderWidth: 1
         }]
-      }
-    });
-
-    // Pie Chart
-    var pieChartCtx = document.getElementById('pieChart').getContext('2d');
-    var pieChart = new Chart(pieChartCtx, {
-      type: 'pie',
-      data: {
-        labels: ['Type A', 'Type B', 'Type C'],
-        datasets: [{
-          label: 'Account Types',
-          data: [200, 150, 100],
-          backgroundColor: ['rgba(75, 192, 192, 0.5)', 'rgba(153, 102, 255, 0.5)', 'rgba(255, 159, 64, 0.5)'],
-          borderColor: ['rgba(75, 192, 192, 1)', 'rgba(153, 102, 255, 1)', 'rgba(255, 159, 64, 1)'],
-          borderWidth: 1
-        }]
-      }
-    });
-
-    // Line Chart
-    var lineChartCtx = document.getElementById('lineChart').getContext('2d');
-    var lineChart = new Chart(lineChartCtx, {
-      type: 'line',
-      data: {
-        labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July'],
-        datasets: [{
-          label: 'Balance',
-          data: [65, 59, 80, 81, 56, 55, 40],
-          fill: false,
-          borderColor: 'rgba(75, 192, 192, 1)',
-          tension: 0.1
-        }]
-      },
-      options: {
-        scales: {
-          y: {
-            beginAtZero: true
-          }
-        }
       }
     });
   });

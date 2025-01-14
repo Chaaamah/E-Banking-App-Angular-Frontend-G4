@@ -1,0 +1,9 @@
+<div class="chatbot-container">
+  <div class="chatbot-messages">
+    <div *ngFor="let message of messages">
+      <p [class.user]="message.isUser">{{ message.text }}</p>
+    </div>
+  </div>
+  <input [(ngModel)]="userInput" placeholder="Posez votre question..." />
+  <button (click)="sendMessage()">Envoyer</button>
+</div>

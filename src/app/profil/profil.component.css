@@ -1,0 +1,118 @@
+/* Conteneur principal */
+.container {
+  max-width: 1200px;
+  margin: auto;
+  padding: 20px;
+}
+
+/* Carte personnalisée */
+.custom-card {
+  border-radius: 20px;
+  background: #ffffff;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  padding: 10px;
+}
+
+/* En-tête de la carte */
+.custom-card-header {
+  background: linear-gradient(90deg, #6a11cb, #2575fc);
+  color: white;
+  text-align: center;
+  font-size: 1.5rem;
+  padding: 20px;
+  border-top-left-radius: 20px;
+  border-top-right-radius: 20px;
+}
+
+/* Corps de la carte */
+.custom-card-body {
+  background: #f8f9fa;
+  border-radius: 16px;
+  padding: 30px;
+}
+
+/* Labels des champs */
+.custom-label {
+  font-weight: bold;
+  color: #333;
+  font-size: 1.1rem;
+}
+
+/* Champs de saisie personnalisés */
+.custom-input {
+  border-radius: 10px;
+  padding: 16px;
+  font-size: 1rem;
+  border: 1px solid #e0e6ed;
+  transition: border-color 0.3s ease;
+}
+
+.custom-input:focus {
+  border-color: #2575fc;
+  outline: none;
+}
+
+/* Boutons personnalisés */
+.custom-btn {
+  border-radius: 50px;
+  transition: all 0.3s ease;
+  font-size: 1.1rem;
+}
+
+.custom-btn:hover {
+  transform: scale(1.05);
+}
+
+.custom-btn:focus {
+  outline: none;
+}
+
+/* Bouton Cancel */
+.btn-outline-danger {
+  border-color: #ff5252;
+  color: #ff5252;
+}
+
+.btn-outline-danger:hover {
+  background-color: #ff5252;
+  color: white;
+}
+
+/* Bouton Change */
+.btn-success {
+  background-color: #2575fc;
+  border-color: #2575fc;
+}
+
+.btn-success:hover {
+  background-color: #6a11cb;
+  border-color: #6a11cb;
+}
+
+/* Disposition des boutons */
+.d-flex {
+  display: flex;
+  justify-content: flex-end;
+  gap: 16px;
+}
+
+/* Réactivité */
+@media (max-width: 768px) {
+  .custom-card-body {
+    padding: 20px;
+  }
+
+  .custom-label {
+    font-size: 1rem;
+  }
+
+  .custom-input {
+    font-size: 0.9rem;
+    padding: 12px;
+  }
+
+  .btn-lg {
+    font-size: 1rem;
+    padding: 10px 20px;
+  }
+}

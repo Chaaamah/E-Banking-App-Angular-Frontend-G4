@@ -1,14 +1,18 @@
-<mat-toolbar color="primary" class="custom-toolbar">
+<mat-toolbar color="info" class="custom-toolbar">
   <!-- Titre de l'application -->
-  <span class="app-title">DIGITAL BANK</span>
+  <span class="app-title text-black">BANK EASE</span>
 
-  <!-- Espace flexible pour aligner les éléments à droite -->
-  <span style="flex: auto"></span>
+
 
   <!-- Tableau de bord -->
   <button mat-button routerLink="/admin/dashboard" class="menu-button">
     <mat-icon>dashboard</mat-icon>
     Dashboard
+  </button>
+
+  <button mat-button routerLink="/admin/chatbot" class="menu-button">
+    <mat-icon>chatbot</mat-icon>
+    ChatBot
   </button>
 
   <!-- Menu des clients -->
@@ -39,23 +43,27 @@
       <mat-icon>search</mat-icon>
       Search Accounts
     </button>
+    <button mat-menu-item routerLink="/admin/new-account">
+      <mat-icon>add</mat-icon>
+      New Accounts
+    </button>
     <button mat-menu-item routerLink="/admin/accountsList">
       <mat-icon>edit</mat-icon>
       Manage Accounts
     </button>
   </mat-menu>
 
+
+  <!-- Espace flexible pour aligner les éléments à droite -->
+  <span style="flex: auto"></span>
+
   <!-- Menu du profil -->
   <button *ngIf="authService.isAuth" [matMenuTriggerFor]="ProfilMenu" mat-button class="menu-button">
     <mat-icon>person</mat-icon>
-    Profile: {{ authService.username }}
+    {{ authService.username }}
     <mat-icon>keyboard_arrow_down</mat-icon>
   </button>
   <mat-menu #ProfilMenu="matMenu">
-    <button mat-menu-item>
-      <mat-icon>security</mat-icon>
-      Role: {{ authService.roles == 'ROLE_USER' ? 'User' : (authService.roles.includes('ADMIN') ? 'Admin' : 'NULL') }}
-    </button>
     <button mat-menu-item routerLink="/admin/profile">
       <mat-icon>lock</mat-icon>
       Change password

@@ -1,0 +1,137 @@
+/* Style global pour la table */
+.container {
+  max-width: 1200px;
+  margin: auto;
+  padding: 20px;
+}
+
+/* Table principale */
+.custom-table {
+  width: 100%;
+  border-radius: 12px;
+  background-color: #ffffff;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+}
+
+/* Style des en-têtes de la table */
+.table-header {
+  background-color: #4caf50;
+  color: white;
+  font-weight: bold;
+  text-align: center;
+  padding: 12px;
+  border-radius: 10px 10px 0 0;
+  text-transform: uppercase;
+  font-size: 1.1rem;
+}
+
+/* Style des cellules de la table */
+.mat-cell, .mat-header-cell {
+  text-align: center;
+  padding: 12px;
+  font-size: 1rem;
+  border-bottom: 1px solid #e0e0e0;
+}
+
+.mat-header-row, .mat-row {
+  border-bottom: 1px solid #e0e0e0;
+}
+
+.mat-row:hover {
+  background-color: #f1f1f1;
+  cursor: pointer;
+}
+
+/* Badge pour les types et status */
+.mat-cell span.badge {
+  display: inline-block;
+  padding: 4px 8px;
+  border-radius: 12px;
+  color: white;
+  font-size: 0.9rem;
+  text-transform: capitalize;
+}
+
+.mat-cell span.green {
+  background-color: #4caf50;
+}
+
+.mat-cell span.red {
+  background-color: #f44336;
+}
+
+.mat-cell span.blue {
+  background-color: #2196f3;
+}
+
+/* Pagination personnalisée */
+.custom-paginator {
+  margin-top: 16px;
+  text-align: center;
+}
+
+.mat-paginator-range-label {
+  font-weight: bold;
+  color: #2575fc;
+}
+
+.mat-paginator-icon {
+  color: #2575fc;
+}
+
+.mat-paginator-page-size {
+  color: #555;
+}
+
+.mat-paginator-navigation-button {
+  background-color: #f1f5f9;
+  border-radius: 50%;
+  margin: 0 4px;
+  transition: background-color 0.3s ease;
+}
+
+.mat-paginator-navigation-button:hover {
+  background-color: #eef2f7;
+}
+
+/* Améliorations des couleurs pour l'alignement de type */
+.mat-cell span.green {
+  background-color: #4caf50;
+  color: white;
+}
+
+.mat-cell span.red {
+  background-color: #f44336;
+  color: white;
+}
+
+.mat-cell span.blue {
+  background-color: #2196f3;
+  color: white;
+}
+
+/* Boutons d'actions dans les cellules */
+.mat-icon-button {
+  transition: transform 0.3s ease;
+}
+
+.mat-icon-button:hover {
+  transform: scale(1.1);
+  background-color: #efefef;
+}
+
+/* Réactivité */
+@media (max-width: 768px) {
+  .custom-table {
+    font-size: 0.9rem;
+  }
+
+  .table-header {
+    font-size: 0.9rem;
+  }
+
+  .mat-cell {
+    padding: 8px;
+  }
+}

@@ -1,46 +1,41 @@
 <div class="container my-5">
   <div class="row justify-content-center">
     <div class="col-lg-8 col-md-10">
-      <div class="card shadow-lg border-0">
-        <div class="card-header bg-primary text-white d-flex justify-content-center py-4">
-          <h3 class="card-title text-center mb-0">Add New Customer</h3>
+      <div class="card custom-card shadow-lg border-0">
+        <div class="card-header custom-card-header text-white text-center py-4">
+          <h3 class="card-title mb-0">Add New Customer</h3>
         </div>
-        <div class="card-body p-4">
+        <div class="card-body custom-card-body p-4">
           <form (ngSubmit)="handleSaveCustomer()" [formGroup]="newCustomerFormGroup">
 
             <!-- Name Input -->
             <div class="mb-4">
-              <label class="form-label fw-bold" for="name">Name: </label>
-              <input class="form-control form-control-lg" formControlName="name" id="name" placeholder="Enter the name" type="text">
-              <div *ngIf="newCustomerFormGroup.controls['name'].touched &&
-                          newCustomerFormGroup.controls['name'].errors &&
-                          newCustomerFormGroup.controls['name'].errors?.['required']" class="text-danger mt-2">
+              <label class="form-label custom-label" for="name">Name</label>
+              <input class="form-control custom-input" formControlName="name" id="name" placeholder="Enter the name" type="text">
+              <div *ngIf="newCustomerFormGroup.controls['name'].touched && newCustomerFormGroup.controls['name'].errors?.['required']" class="text-danger mt-2">
                 <i class="bi bi-exclamation-circle-fill me-2"></i> Name is required
               </div>
             </div>
 
             <!-- Email Input -->
             <div class="mb-4">
-              <label class="form-label fw-bold" for="email">Email:</label>
-              <input class="form-control form-control-lg" formControlName="email" id="email" placeholder="name@example.com" type="email">
-              <div *ngIf="newCustomerFormGroup.controls['email'].touched &&
-                          newCustomerFormGroup.controls['email'].errors &&
-                          newCustomerFormGroup.controls['email'].errors?.['required']" class="text-danger mt-2">
+              <label class="form-label custom-label" for="email">Email</label>
+              <input class="form-control custom-input" formControlName="email" id="email" placeholder="name@example.com" type="email">
+              <div *ngIf="newCustomerFormGroup.controls['email'].touched && newCustomerFormGroup.controls['email'].errors?.['required']" class="text-danger mt-2">
                 <i class="bi bi-exclamation-circle-fill me-2"></i> Email is not valid
               </div>
             </div>
 
             <!-- Buttons -->
-            <div class="d-flex justify-content-around mt-5">
+            <div class="d-flex justify-content-between mt-5">
               <!-- Cancel Button -->
-              <button type="button" class="btn btn-outline-secondary btn-lg d-flex align-items-center" style="width: 45%;" routerLink="/admin/customers">
+              <button type="button" class="btn btn-outline-danger btn-lg custom-button" style="width: 45%;" routerLink="/admin/customers">
                 Cancel
               </button>
               <!-- Submit Button -->
-              <button [disabled]="!newCustomerFormGroup.valid" class="btn btn-success btn-lg d-flex align-items-center" type="submit" style="width: 45%;">
+              <button [disabled]="!newCustomerFormGroup.valid" class="btn btn-primary btn-lg custom-button" type="submit" style="width: 45%;">
                 Submit
               </button>
-
             </div>
           </form>
         </div>

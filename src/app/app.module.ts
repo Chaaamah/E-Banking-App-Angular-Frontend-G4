@@ -14,7 +14,7 @@ import {MatListModule} from "@angular/material/list";
 import {MatCardModule} from "@angular/material/card";
 import {MatFormFieldModule} from "@angular/material/form-field";
 import {MatInputModule} from "@angular/material/input";
-import {ReactiveFormsModule} from "@angular/forms";
+import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import {HTTP_INTERCEPTORS, HttpClientModule, provideHttpClient, withFetch} from "@angular/common/http";
 import {MatTableModule} from "@angular/material/table";
 import { NavbarComponent } from './navbar/navbar.component';
@@ -24,6 +24,7 @@ import {RouterModule} from "@angular/router";
 import { HomeComponent } from './home/home.component';
 import {MatProgressSpinner, MatProgressSpinnerModule} from "@angular/material/progress-spinner";
 import { NewCustomerComponent } from './new-customer/new-customer.component';
+import { NewAccountComponent } from './new-account/new-account.component';
 import { EditCustomerComponent } from './edit-customer/edit-customer.component';
 import { LoginComponent } from './login/login.component';
 import {AppHttpInterceptor} from "./interceptors/app-http.interceptor";
@@ -32,7 +33,7 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 import { ProfilComponent } from './profil/profil.component';
 import {MatAccordion, MatExpansionModule} from "@angular/material/expansion";
 import { TemplateComponent } from './template/template.component';
-
+import { ChatbotComponent } from './chatbot/chatbot.component';
 
 @NgModule({
   declarations: [
@@ -48,6 +49,7 @@ import { TemplateComponent } from './template/template.component';
     DashboardComponent,
     ProfilComponent,
     TemplateComponent,
+    ChatbotComponent,
   ],
   imports: [
     BrowserModule,
@@ -71,6 +73,9 @@ import { TemplateComponent } from './template/template.component';
     MatProgressSpinnerModule,
     MatAccordion,
     MatExpansionModule,
+    FormsModule,
+    NewAccountComponent,
+    NewAccountComponent,
   ],
   providers: [
     provideAnimationsAsync(),

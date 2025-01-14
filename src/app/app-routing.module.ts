@@ -13,6 +13,8 @@ import {ProfilComponent} from "./profil/profil.component";
 import {NotAuthorizedComponent} from "./not-authorized/not-authorized.component";
 import {TemplateComponent} from "./template/template.component";
 import {CustomerAccountsComponent} from "./customer-accounts/customer-accounts.component";
+import {ChatbotComponent} from "./chatbot/chatbot.component";
+import {NewAccountComponent} from "./new-account/new-account.component";
 
 const routes: Routes = [
   {path: "login", component: LoginComponent},
@@ -29,6 +31,8 @@ const routes: Routes = [
       {path: "customers", component: CustomersComponent},
       {path: "new-customer", component: NewCustomerComponent},
       {path: "edit-customer/:id", component: EditCustomerComponent},
+      {path: "chatbot", component: ChatbotComponent},
+      {path: "new-account", component: NewAccountComponent},
       {path: "home", component: HomeComponent},
     ]
   },

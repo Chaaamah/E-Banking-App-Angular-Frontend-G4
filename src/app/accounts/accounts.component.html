@@ -1,23 +1,24 @@
-<div class="container mt-4">
+<div class="container my-5">
   <div class="row">
     <!-- Section Accounts -->
     <div class="col col-md-6">
-      <div class="card shadow-sm">
-        <div class="card-header bg-primary text-white">Accounts</div>
-        <div class="card-body">
+      <div class="card shadow-lg custom-card">
+        <div class="card-header custom-card-header">
+          <h5 class="card-title mb-0">Accounts</h5>
+        </div>
+        <div class="card-body custom-card-body">
           <!-- Formulaire de recherche -->
           <form [formGroup]="accountFormGroup" (ngSubmit)="handleSearchAccount()">
             <div class="input-group mb-4">
-              <span class="input-group-text bg-light">Account ID:</span>
+              <span class="input-group-text custom-input-group">Account ID:</span>
               <input
                 type="text"
                 formControlName="accountId"
-                class="form-control"
+                class="form-control custom-input"
                 placeholder="Enter account ID"
               />
-              <button class="btn btn-info">
-                <i class="bi bi-search"></i>
-                Search
+              <button class="btn custom-btn">
+                <i class="bi bi-search"></i> Search
               </button>
             </div>
           </form>
@@ -25,7 +26,7 @@
           <!-- Message d'erreur ou de chargement -->
           <ng-template #errorTemplate>
             <ng-container *ngIf="errorMessage; else loading">
-              <div class="alert alert-danger">{{ errorMessage }}</div>
+              <div class="alert alert-danger custom-alert">{{ errorMessage }}</div>
             </ng-container>
             <ng-template #loading>
               <div class="text-center">
@@ -53,7 +54,7 @@
 
             <!-- Tableau des opérations -->
             <div class="table-responsive">
-              <table class="table table-hover table-striped">
+              <table class="table table-hover table-striped custom-table">
                 <thead class="table-light">
                 <tr>
                   <th>ID</th>
@@ -75,7 +76,7 @@
 
             <!-- Pagination -->
             <div class="d-flex justify-content-center mt-3">
-              <ul class="pagination">
+              <ul class="pagination custom-pagination">
                 <li *ngFor="let item of [].constructor(accountDetails.totalPages); let page = index" class="page-item">
                   <a
                     [ngClass]="page == currentPage ? 'page-link active' : 'page-link'"
@@ -94,9 +95,11 @@
 
     <!-- Section Operations -->
     <div class="col col-md-6">
-      <div class="card shadow-sm" *ngIf="accountObservable">
-        <div class="card-header bg-success text-white">Operations</div>
-        <div class="card-body">
+      <div class="card shadow-lg custom-card" *ngIf="accountObservable">
+        <div class="card-header custom-card-header">
+          <h5 class="card-title mb-0">Operations</h5>
+        </div>
+        <div class="card-body custom-card-body">
           <!-- Formulaire d'opérations -->
           <form [formGroup]="operationFromGroup" (ngSubmit)="handleAccountOperation()" method="post">
             <div class="mb-3">
@@ -139,7 +142,7 @@
               <input
                 type="text"
                 formControlName="accountDestination"
-                class="form-control"
+                class="form-control custom-input"
                 placeholder="Enter destination account ID"
               />
             </div>
@@ -150,7 +153,7 @@
               <input
                 type="text"
                 formControlName="amount"
-                class="form-control"
+                class="form-control custom-input"
                 placeholder="Enter amount"
               />
             </div>
@@ -161,16 +164,15 @@
               <input
                 type="text"
                 formControlName="description"
-                class="form-control"
+                class="form-control custom-input"
                 placeholder="Enter description"
               />
             </div>
 
             <!-- Bouton de soumission -->
             <div class="d-grid">
-              <button class="btn btn-success">
-                <i class="bi bi-save"></i>
-                Save Operation
+              <button class="btn custom-btn">
+                <i class="bi bi-save"></i> Save Operation
               </button>
             </div>
           </form>

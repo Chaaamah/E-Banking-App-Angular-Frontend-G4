@@ -1,19 +1,23 @@
-import {Component, OnInit} from '@angular/core';
-import {Router} from "@angular/router";
-import {FormBuilder, FormGroup} from "@angular/forms";
-import {AuthService} from "../services/auth.service";
-import Swal from "sweetalert2";
+import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { FormBuilder, FormGroup } from '@angular/forms';
+import { AuthService } from '../services/auth.service';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
-  styleUrl: './login.component.css'
+  styleUrls: ['./login.component.css']
 })
-export class LoginComponent implements OnInit{
+export class LoginComponent implements OnInit {
   public loginForm!: FormGroup;
-  constructor(private fb: FormBuilder,
-              private authService : AuthService,
-              private router : Router) { }
+  public passwordVisibility: boolean = false;  // State for password visibility
+
+  constructor(
+    private fb: FormBuilder,
+    private authService: AuthService,
+    private router: Router
+  ) { }
 
   ngOnInit(): void {
     this.loginForm = this.fb.group({
@@ -22,6 +26,12 @@ export class LoginComponent implements OnInit{
     });
   }
 
+  // Toggle password visibility
+  togglePasswordVisibility() {
+    this.passwordVisibility = !this.passwordVisibility;
+  }
+
+  // Login logic
   login() {
     let username = this.loginForm.value.username;
     let password = this.loginForm.value.password;
@@ -29,9 +39,9 @@ export class LoginComponent implements OnInit{
       next: data => {
         this.authService.loadProfile(data);
         if (this.authService.isAdmin()) {
-          this.router.navigateByUrl("/admin/home");
+          this.router.navigateByUrl('/admin/home');
         } else {
-          this.router.navigateByUrl("/user/home");
+          this.router.navigateByUrl('/user/home');
         }
       },
       error: error => {
@@ -45,9 +55,8 @@ export class LoginComponent implements OnInit{
         }).fire({
           icon: 'error',
           title: 'Email or password incorrect'
-        })
+        });
       }
-    })
-
+    });
   }
 }

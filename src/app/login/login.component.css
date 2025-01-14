@@ -1,37 +1,117 @@
+/* Conteneur principal */
 .container {
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 50vh;
+  min-height: 100vh;
+  background: linear-gradient(135deg, #4facfe, #00f2fe);
 }
 
-.login-form {
+/* Carte de connexion */
+.custom-login-card {
   width: 100%;
-  max-width: 450px;
+  max-width: 400px;
+  border-radius: 20px;
+  background-color: white;
+  overflow: hidden;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
   padding: 20px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
-.mat-card-title {
-  font-size: 24px;
-  color: #333;
+/* En-tête de la carte */
+.custom-card-header {
+  background-color: #4facfe;
+  color: white;
+  padding: 16px;
+  font-size: 1.5rem;
+  border-radius: 16px;
 }
 
+.mat-card-title mat-icon {
+  margin-right: 8px;
+}
+
+/* Corps de la carte */
+.custom-card-body {
+  padding: 20px;
+}
+
+/* Champs de saisie */
 .full-width-input {
   width: 100%;
   margin-bottom: 16px;
 }
 
-mat-form-field {
-  width: 100%;
-  font-size: 16px;
+.mat-form-field {
+  border-radius: 12px;
+  overflow: hidden;
 }
 
-button.mat-raised-button {
-  width: 100%;
-  margin-top: 10px;
+.mat-label {
+  font-weight: 500;
 }
 
-mat-card-content{
-  margin-top: 30px;
+.mat-input-element {
+  font-size: 1rem;
+}
+
+.mat-form-field-underline {
+  display: none;
+}
+
+.mat-form-field-fill .mat-form-field-infix {
+  border-radius: 12px;
+  background-color: #f1f5f9;
+}
+
+.mat-form-field-fill .mat-input-element {
+  padding-left: 20px;
+}
+
+/* Icones dans les champs */
+.mat-icon {
+  color: #6a11cb;
+}
+
+/* Bouton de soumission */
+.custom-btn {
+  background-color: #6a11cb;
+  color: white;
+  font-size: 1.1rem;
+  padding: 12px;
+  border-radius: 50px;
+  transition: all 0.3s ease;
+}
+
+.custom-btn:hover {
+  background-color: #2575fc;
+  transform: scale(1.05);
+}
+
+.custom-btn:focus {
+  outline: none;
+}
+
+/* Effets d'ombre sur le bouton */
+.custom-btn:active {
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+}
+/* Personnalisation de l'icône du mot de passe */
+.eye-icon {
+  cursor: pointer;
+  color: #2575fc;
+}
+.eye-icon:hover {
+  color: #4facfe;
+}
+
+/* Réactivité */
+@media (max-width: 768px) {
+  .custom-login-card {
+    padding: 20px 15px;
+  }
+
+  .custom-card-header {
+    font-size: 1.25rem;
+  }
 }

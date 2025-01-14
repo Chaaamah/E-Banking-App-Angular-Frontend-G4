@@ -1,22 +1,132 @@
-/* Style pour le type de compte */
-.type-current {
-  background-color: green;
-  color: white;
-  padding: 4px 8px;
-  border-radius: 4px;
+/* Style pour le container */
+.container {
+  max-width: 1200px;
+  margin: auto;
+  padding: 20px;
 }
 
-.type-saving {
-  background-color: red;
-  color: white;
-  padding: 4px 8px;
-  border-radius: 4px;
+/* Carte personnalisée */
+.custom-card {
+  border-radius: 16px;
+  background-color: #ffffff;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  padding: 10px;
 }
 
-/* Style pour le statut */
-.status-created {
-  background-color: green;
+/* En-tête des cartes */
+.custom-card-header {
+  background-color: #6a11cb;
   color: white;
-  padding: 4px 8px;
-  border-radius: 4px;
+  text-align: center;
+  padding: 15px;
+  border-top-left-radius: 16px;
+  border-top-right-radius: 16px;
+}
+
+/* Corps des cartes */
+.custom-card-body {
+  padding: 20px;
+}
+
+/* Recherche et champs de saisie */
+.custom-input-group {
+  background-color: #f8f9fa;
+}
+
+.custom-input {
+  font-size: 1rem;
+  border-radius: 8px;
+  padding: 12px;
+  background-color: #f1f5f9;
+  border: 1px solid #ccc;
+}
+
+.custom-btn {
+  background-color: #6a11cb;
+  color: white;
+  font-size: 1.1rem;
+  border-radius: 50px;
+  transition: all 0.3s ease;
+}
+
+.custom-btn:hover {
+  background-color: #2575fc;
+  transform: scale(1.05);
+}
+
+/* Tableau des opérations */
+.custom-table {
+  width: 100%;
+  border-radius: 10px;
+  background-color: white;
+}
+
+.custom-pagination {
+  display: flex;
+  justify-content: center;
+  padding: 16px;
+  background-color: #eef2f7;
+  border-radius: 8px;
+}
+
+.mat-paginator-container {
+  font-size: 14px;
+}
+
+.mat-paginator-range-label {
+  font-weight: bold;
+  color: #2575fc;
+}
+
+.mat-paginator-icon {
+  color: #2575fc;
+}
+
+.mat-paginator-page-size {
+  color: #555;
+}
+
+.mat-paginator-navigation-button {
+  background-color: #f1f5f9;
+  border-radius: 50%;
+  margin: 0 4px;
+  transition: background-color 0.3s ease;
+}
+
+.mat-paginator-navigation-button:hover {
+  background-color: #eef2f7;
+}
+
+.custom-pagination-btn {
+  margin-left: 8px;
+}
+
+.custom-pagination-btn:hover {
+  background-color: #2575fc;
+  color: white;
+}
+
+.custom-pagination-btn.active {
+  background-color: #2575fc;
+  color: white;
+}
+
+/* Réactivité */
+@media (max-width: 768px) {
+  .custom-card-body {
+    padding: 20px 10px;
+  }
+
+  .custom-input {
+    padding: 10px;
+  }
+
+  .custom-btn {
+    font-size: 1rem;
+    padding: 10px 20px;
+  }
+
+  .custom-table {
+    font-size: 0.9rem;
+  }
 }
