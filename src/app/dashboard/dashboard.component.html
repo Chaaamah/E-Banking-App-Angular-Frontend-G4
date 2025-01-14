@@ -1,10 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dashboard</title>
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <!-- Bootstrap Icons -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css" rel="stylesheet">
+  <style>
+    .card {
+      border: none;
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      transition: transform 0.3s ease;
+    }
+    .card:hover {
+      transform: translateY(-5px);
+    }
+    .card-header {
+      background-color: #f8f9fa;
+      border-bottom: none;
+      font-weight: bold;
+    }
+    .card-body {
+      padding: 1.5rem;
+    }
+    .card-title {
+      font-size: 1.25rem;
+      font-weight: bold;
+    }
+    .card-text {
+      font-size: 1.5rem;
+      font-weight: bold;
+    }
+    .bg-primary {
+      background-color: #007bff !important;
+    }
+    .bg-success {
+      background-color: #28a745 !important;
+    }
+    .bg-info {
+      background-color: #17a2b8 !important;
+    }
+  </style>
+</head>
+<body>
 <div class="container-fluid mt-4">
   <div class="row">
     <!-- Stylish Cards -->
     <div class="col-md-4 mb-4">
       <div class="card text-white bg-primary">
         <div class="card-body">
-          <h5 class="card-title">Total Customers</h5>
+          <h5 class="card-title"><i class="bi bi-people-fill"></i> Total Customers</h5>
           <p class="card-text">{{ totalCustomers }}</p>
         </div>
       </div>
@@ -12,7 +60,7 @@
     <div class="col-md-4 mb-4">
       <div class="card text-white bg-success">
         <div class="card-body">
-          <h5 class="card-title">Total Accounts</h5>
+          <h5 class="card-title"><i class="bi bi-wallet-fill"></i> Total Accounts</h5>
           <p class="card-text">{{ totalAccounts }}</p>
         </div>
       </div>
@@ -20,7 +68,7 @@
     <div class="col-md-4 mb-4">
       <div class="card text-white bg-info">
         <div class="card-body">
-          <h5 class="card-title">Total Balance</h5>
+          <h5 class="card-title"><i class="bi bi-cash-stack"></i> Total Balance</h5>
           <p class="card-text">{{ totalBalance | currency }}</p>
         </div>
       </div>
@@ -31,7 +79,7 @@
     <!-- Bar Chart -->
     <div class="col-md-6 mb-4">
       <div class="card">
-        <div class="card-header">Accounts per Customer</div>
+        <div class="card-header"><i class="bi bi-bar-chart-line-fill"></i> Accounts per Customer</div>
         <div class="card-body">
           <canvas id="barChart"></canvas>
         </div>
@@ -41,7 +89,7 @@
     <!-- Doughnut Chart -->
     <div class="col-md-6 mb-4">
       <div class="card">
-        <div class="card-header">Operation Types Ratio</div>
+        <div class="card-header"><i class="bi bi-pie-chart-fill"></i> Operation Types Ratio</div>
         <div class="card-body">
           <canvas id="doughnutChart"></canvas>
         </div>
@@ -51,7 +99,7 @@
     <!-- Pie Chart -->
     <div class="col-md-6 mb-4">
       <div class="card">
-        <div class="card-header">Account Types Distribution</div>
+        <div class="card-header"><i class="bi bi-pie-chart-fill"></i> Account Types Distribution</div>
         <div class="card-body">
           <canvas id="pieChart"></canvas>
         </div>
@@ -61,13 +109,101 @@
     <!-- Line Chart -->
     <div class="col-md-6 mb-4">
       <div class="card">
-        <div class="card-header">Balance Over Time</div>
+        <div class="card-header"><i class="bi bi-graph-up"></i> Balance Over Time</div>
         <div class="card-body">
           <canvas id="lineChart"></canvas>
         </div>
       </div>
     </div>
-
-
   </div>
 </div>
+
+<!-- Bootstrap JS and dependencies -->
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.min.js"></script>
+<!-- Chart.js -->
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script>
+  // Example Chart.js initialization
+  document.addEventListener('DOMContentLoaded', function () {
+    // Bar Chart
+    var barChartCtx = document.getElementById('barChart').getContext('2d');
+    var barChart = new Chart(barChartCtx, {
+      type: 'bar',
+      data: {
+        labels: ['Customer 1', 'Customer 2', 'Customer 3', 'Customer 4', 'Customer 5'],
+        datasets: [{
+          label: 'Accounts',
+          data: [12, 19, 3, 5, 2],
+          backgroundColor: 'rgba(0, 123, 255, 0.5)',
+          borderColor: 'rgba(0, 123, 255, 1)',
+          borderWidth: 1
+        }]
+      },
+      options: {
+        scales: {
+          y: {
+            beginAtZero: true
+          }
+        }
+      }
+    });
+
+    // Doughnut Chart
+    var doughnutChartCtx = document.getElementById('doughnutChart').getContext('2d');
+    var doughnutChart = new Chart(doughnutChartCtx, {
+      type: 'doughnut',
+      data: {
+        labels: ['Type 1', 'Type 2', 'Type 3'],
+        datasets: [{
+          label: 'Operation Types',
+          data: [300, 50, 100],
+          backgroundColor: ['rgba(255, 99, 132, 0.5)', 'rgba(54, 162, 235, 0.5)', 'rgba(255, 206, 86, 0.5)'],
+          borderColor: ['rgba(255, 99, 132, 1)', 'rgba(54, 162, 235, 1)', 'rgba(255, 206, 86, 1)'],
+          borderWidth: 1
+        }]
+      }
+    });
+
+    // Pie Chart
+    var pieChartCtx = document.getElementById('pieChart').getContext('2d');
+    var pieChart = new Chart(pieChartCtx, {
+      type: 'pie',
+      data: {
+        labels: ['Type A', 'Type B', 'Type C'],
+        datasets: [{
+          label: 'Account Types',
+          data: [200, 150, 100],
+          backgroundColor: ['rgba(75, 192, 192, 0.5)', 'rgba(153, 102, 255, 0.5)', 'rgba(255, 159, 64, 0.5)'],
+          borderColor: ['rgba(75, 192, 192, 1)', 'rgba(153, 102, 255, 1)', 'rgba(255, 159, 64, 1)'],
+          borderWidth: 1
+        }]
+      }
+    });
+
+    // Line Chart
+    var lineChartCtx = document.getElementById('lineChart').getContext('2d');
+    var lineChart = new Chart(lineChartCtx, {
+      type: 'line',
+      data: {
+        labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July'],
+        datasets: [{
+          label: 'Balance',
+          data: [65, 59, 80, 81, 56, 55, 40],
+          fill: false,
+          borderColor: 'rgba(75, 192, 192, 1)',
+          tension: 0.1
+        }]
+      },
+      options: {
+        scales: {
+          y: {
+            beginAtZero: true
+          }
+        }
+      }
+    });
+  });
+</script>
+</body>
+</html>

@@ -1,39 +1,54 @@
 <div class="mat-elevation-z8">
   <table mat-table [dataSource]="dataSource" class="full-width-table">
+    <!-- Colonne ID -->
     <ng-container matColumnDef="id">
       <th mat-header-cell *matHeaderCellDef>ID</th>
-      <td mat-cell *matCellDef="let account">{{account.id}}</td>
+      <td mat-cell *matCellDef="let account">{{ account.id }}</td>
     </ng-container>
 
+    <!-- Colonne Customer -->
     <ng-container matColumnDef="customer">
       <th mat-header-cell *matHeaderCellDef>Customer</th>
       <td mat-cell *matCellDef="let account">{{ account.customerDTO.name }}</td>
     </ng-container>
 
+    <!-- Colonne Type -->
     <ng-container matColumnDef="type">
       <th mat-header-cell *matHeaderCellDef>Type</th>
-      <td mat-cell *matCellDef="let account">{{account.type}}</td>
+      <td mat-cell *matCellDef="let account">
+        <span [ngClass]="getTypeClass(account.type)">{{ account.type }}</span>
+      </td>
     </ng-container>
 
+    <!-- Colonne Creation Date -->
     <ng-container matColumnDef="creationDate">
       <th mat-header-cell *matHeaderCellDef>Creation Date</th>
-      <td mat-cell *matCellDef="let account">{{account.creationDate}}</td>
+      <td mat-cell *matCellDef="let account">{{ account.creationDate }}</td>
     </ng-container>
 
+    <!-- Colonne Status -->
     <ng-container matColumnDef="status">
       <th mat-header-cell *matHeaderCellDef>Status</th>
-      <td mat-cell *matCellDef="let account">{{account.status}}</td>
+      <td mat-cell *matCellDef="let account">
+        <span [ngClass]="getStatusClass(account.status)">{{ account.status }}</span>
+      </td>
     </ng-container>
 
+    <!-- Colonne Balance -->
     <ng-container matColumnDef="balance">
       <th mat-header-cell *matHeaderCellDef>Balance</th>
-      <td mat-cell *matCellDef="let account">{{account.balance}}</td>
+      <td mat-cell *matCellDef="let account">{{ account.balance }}</td>
     </ng-container>
 
+    <!-- En-têtes et lignes du tableau -->
     <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
     <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
   </table>
 
-  <mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons></mat-paginator>
+  <!-- Pagination avec une classe personnalisée -->
+  <mat-paginator
+    [pageSizeOptions]="[5, 10, 20]"
+    showFirstLastButtons
+    class="custom-paginator"
+  ></mat-paginator>
 </div>
-

@@ -1,125 +1,74 @@
-<mat-toolbar color="primary">
-  <button (click)="menuDrawer.toggle()" *ngIf="authService.isAdmin()" mat-icon-button>
-    <mat-icon>menu</mat-icon>
-  </button>
-  <span>DIGITAL BANK</span>
+<mat-toolbar color="primary" class="custom-toolbar">
+  <!-- Titre de l'application -->
+  <span class="app-title">DIGITAL BANK</span>
+
+  <!-- Espace flexible pour aligner les éléments à droite -->
   <span style="flex: auto"></span>
-  <button mat-button routerLink="/admin/home">
-    <mat-icon>home</mat-icon>
-    Home
+
+  <!-- Tableau de bord -->
+  <button mat-button routerLink="/admin/dashboard" class="menu-button">
+    <mat-icon>dashboard</mat-icon>
+    Dashboard
   </button>
-  <button *ngIf="authService.isAdmin()" [matMenuTriggerFor]="CusMenu" mat-button>
-    <mat-icon>person</mat-icon>
-    <mat-icon iconPositionEnd>keyboard_arrow_down</mat-icon>
+
+  <!-- Menu des clients -->
+  <button *ngIf="authService.isAdmin()" [matMenuTriggerFor]="CusMenu" mat-button class="menu-button">
+    <mat-icon>people</mat-icon>
     Customers
+    <mat-icon>keyboard_arrow_down</mat-icon>
   </button>
-  <!-- Customer Menu -->
   <mat-menu #CusMenu="matMenu">
-    <button mat-menu-item routerLink="/admin/customers">Search Customers</button>
-    <button mat-menu-item routerLink="/admin/new-customer">Create Customer</button>
+    <button mat-menu-item routerLink="/admin/customers">
+      <mat-icon>search</mat-icon>
+      Search Customers
+    </button>
+    <button mat-menu-item routerLink="/admin/new-customer">
+      <mat-icon>add</mat-icon>
+      Create Customer
+    </button>
   </mat-menu>
-  <!-- Accounts Button -->
-  <button *ngIf="authService.isAdmin()" [matMenuTriggerFor]="accountMenu" mat-button>
-    <mat-icon>account_balance</mat-icon>
-    <mat-icon iconPositionEnd>keyboard_arrow_down</mat-icon>
+
+  <!-- Menu des comptes -->
+  <button *ngIf="authService.isAdmin()" [matMenuTriggerFor]="accountMenu" mat-button class="menu-button">
+    <mat-icon>account_balance_wallet</mat-icon>
     Accounts
+    <mat-icon>keyboard_arrow_down</mat-icon>
   </button>
-  <!-- Accounts Menu -->
   <mat-menu #accountMenu="matMenu">
-    <button mat-menu-item routerLink="/admin/accounts">Search Accounts</button>
-    <button mat-menu-item routerLink="/admin/accountsList">Manage Accounts</button>
+    <button mat-menu-item routerLink="/admin/accounts">
+      <mat-icon>search</mat-icon>
+      Search Accounts
+    </button>
+    <button mat-menu-item routerLink="/admin/accountsList">
+      <mat-icon>edit</mat-icon>
+      Manage Accounts
+    </button>
   </mat-menu>
-  <!-- Profile Menu -->
-  <button *ngIf="authService.isAuth" [matMenuTriggerFor]="ProfilMenu" mat-button>
-    Profile : {{ authService.username }}
-    <mat-icon iconPositionEnd>keyboard_arrow_down</mat-icon>
+
+  <!-- Menu du profil -->
+  <button *ngIf="authService.isAuth" [matMenuTriggerFor]="ProfilMenu" mat-button class="menu-button">
+    <mat-icon>person</mat-icon>
+    Profile: {{ authService.username }}
+    <mat-icon>keyboard_arrow_down</mat-icon>
   </button>
   <mat-menu #ProfilMenu="matMenu">
     <button mat-menu-item>
+      <mat-icon>security</mat-icon>
       Role: {{ authService.roles == 'ROLE_USER' ? 'User' : (authService.roles.includes('ADMIN') ? 'Admin' : 'NULL') }}
     </button>
-    <button mat-menu-item routerLink="/admin/profile">Change password</button>
+    <button mat-menu-item routerLink="/admin/profile">
+      <mat-icon>lock</mat-icon>
+      Change password
+    </button>
   </mat-menu>
-  <button (click)="logout()" color="warn" mat-raised-button>Logout</button>
+
+  <!-- Icône de déconnexion -->
+  <button mat-icon-button (click)="logout()" class="logout-icon" matTooltip="Logout">
+    <mat-icon>logout</mat-icon>
+  </button>
 </mat-toolbar>
 
-<mat-drawer-container class="drawer-container">
-  <mat-drawer #menuDrawer class="sidebar" mode="side" [opened]="authService.isAdmin()">
-    <mat-nav-list>
-      <!-- Dashboard -->
-      <mat-list-item>
-        <button mat-button routerLink="/admin/dashboard">
-          <mat-icon>dashboard</mat-icon>
-          <span>Dashboard</span>
-        </button>
-      </mat-list-item>
-
-      <!-- Customers Section -->
-      <mat-accordion multi="true">
-        <mat-expansion-panel>
-          <mat-expansion-panel-header>
-            <mat-panel-title>
-              <mat-icon>person</mat-icon>
-              Customers
-            </mat-panel-title>
-          </mat-expansion-panel-header>
-          <mat-action-list>
-            <button mat-list-item routerLink="/admin/customers">
-              <mat-icon>search</mat-icon>
-              Search Customers
-            </button>
-            <button mat-list-item routerLink="/admin/new-customer">
-              <mat-icon>add_circle_outline</mat-icon>
-              Add Customer
-            </button>
-            <button mat-list-item routerLink="/admin/customers">
-              <mat-icon>edit</mat-icon>
-              Manage Customers
-            </button>
-          </mat-action-list>
-        </mat-expansion-panel>
-      </mat-accordion>
-
-      <!-- Accounts Section -->
-      <mat-accordion multi="true">
-        <mat-expansion-panel>
-          <mat-expansion-panel-header>
-            <mat-panel-title>
-              <mat-icon>account_balance</mat-icon>
-              Accounts
-            </mat-panel-title>
-          </mat-expansion-panel-header>
-          <mat-action-list>
-            <button mat-list-item routerLink="/admin/accounts">
-              <mat-icon>add_circle_outline</mat-icon>
-              Add Account
-            </button>
-            <button mat-list-item routerLink="/admin/accounts">
-              <mat-icon>search</mat-icon>
-              Search Accounts
-            </button>
-            <button mat-list-item routerLink="/admin/accountsList">
-              <mat-icon>edit</mat-icon>
-              Manage Accounts
-            </button>
-          </mat-action-list>
-        </mat-expansion-panel>
-      </mat-accordion>
-
-      <!-- User Management Section -->
-      <mat-list-item>
-        <button mat-button routerLink="/admin/users">
-          <mat-icon>security</mat-icon>
-          Manage Users
-        </button>
-      </mat-list-item>
-
-    </mat-nav-list>
-  </mat-drawer>
-
-  <mat-drawer-content>
-    <div class="content-wrapper">
-      <router-outlet></router-outlet>
-    </div>
-  </mat-drawer-content>
-</mat-drawer-container>
+<!-- Contenu principal -->
+<div class="content-wrapper">
+  <router-outlet></router-outlet>
+</div>

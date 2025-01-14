@@ -7,6 +7,7 @@ import { AuthService } from '../services/auth.service';
   styleUrls: ['./navbar.component.css']
 })
 export class NavbarComponent {
+  menuDrawer: any;
   constructor(public authService: AuthService) { }
 
   logout(): void {
