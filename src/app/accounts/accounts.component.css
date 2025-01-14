@@ -15,7 +15,7 @@
 
 /* En-tête des cartes */
 .custom-card-header {
-  background-color: #6a11cb;
+  background-color: #6a11cb; /* Violet */
   color: white;
   text-align: center;
   padding: 15px;
@@ -26,11 +26,15 @@
 /* Corps des cartes */
 .custom-card-body {
   padding: 20px;
+  background-color: #f9f9f9; /* Fond clair pour le corps */
+  border-radius: 12px;
 }
 
 /* Recherche et champs de saisie */
 .custom-input-group {
   background-color: #f8f9fa;
+  padding: 10px;
+  border-radius: 8px;
 }
 
 .custom-input {
@@ -39,18 +43,26 @@
   padding: 12px;
   background-color: #f1f5f9;
   border: 1px solid #ccc;
+  transition: border-color 0.3s ease;
 }
 
+.custom-input:focus {
+  border-color: #2575fc; /* Bleue lors du focus */
+  outline: none;
+}
+
+/* Bouton personnalisé */
 .custom-btn {
-  background-color: #6a11cb;
+  background-color: #6a11cb; /* Violet */
   color: white;
   font-size: 1.1rem;
   border-radius: 50px;
   transition: all 0.3s ease;
+  padding: 10px 20px;
 }
 
 .custom-btn:hover {
-  background-color: #2575fc;
+  background-color: #2575fc; /* Bleue lors du survol */
   transform: scale(1.05);
 }
 
@@ -59,8 +71,11 @@
   width: 100%;
   border-radius: 10px;
   background-color: white;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+  margin-bottom: 16px;
 }
 
+/* Pagination */
 .custom-pagination {
   display: flex;
   justify-content: center;
@@ -128,5 +143,18 @@
 
   .custom-table {
     font-size: 0.9rem;
+  }
+
+  .mat-header-cell, .mat-cell {
+    font-size: 12px;
+  }
+
+  .custom-card-header {
+    font-size: 1.4rem;
+  }
+
+  .custom-btn {
+    width: 100%;
+    padding: 12px 20px;
   }
 }

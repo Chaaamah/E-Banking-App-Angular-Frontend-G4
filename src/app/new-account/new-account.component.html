@@ -1,72 +1,66 @@
-<div class="container mt-4 mx-auto">
+<div class="container mt-5 mx-auto">
   <div class="row">
-    <div class="col-8 offset-2">
-      <div class="card">
-        <div class="card-header">
-          <h2>Add new Account</h2>
+    <div class="col-12 col-md-8 offset-md-2">
+      <div class="card custom-card shadow-lg border-0">
+        <div class="card-header custom-card-header text-center">
+          <h3 class="card-title mb-0">Add New Account</h3>
         </div>
-        <div *ngIf="errorMessage" class="text-capitalize text-bg-danger text-center">
+        <div *ngIf="errorMessage" class="alert alert-danger text-center text-capitalize">
           {{ errorMessage }}
         </div>
-        <div class="card-body">
+        <div class="card-body custom-card-body">
           <form
             *ngIf="newAccountFormGroup"
             [formGroup]="newAccountFormGroup" (ngSubmit)="handleSaveNewAccount()"
           >
-            <div class="row">
-              <fieldset class="mb-3">
-                <p>Select an account type</p>
-                <select class="form-select" formControlName="type">
-                  <option value="CurrentAccount">Current Account</option>
-                  <option value="SavingAccount">Saving Account</option>
-                </select>
-              </fieldset>
+            <!-- Account Type Selection -->
+            <div class="mb-4">
+              <label for="type" class="form-label custom-label">Select an Account Type</label>
+              <select id="type" class="form-select custom-input" formControlName="type">
+                <option value="CurrentAccount">Current Account</option>
+                <option value="SavingAccount">Saving Account</option>
+              </select>
             </div>
-            <div class="mb-3">
-              <label class="form-label">Balance :</label>
-              <input type="number" formControlName="balance" class="form-control">
-              <span class="text-danger"
-                    *ngIf="newAccountFormGroup.controls['balance']?.touched
-                  && newAccountFormGroup.controls['balance']?.errors
-                   && newAccountFormGroup.controls['balance']?.errors!['required']">
-              Balance Is Required !
-            </span>
+
+            <!-- Balance Input -->
+            <div class="mb-4">
+              <label for="balance" class="form-label custom-label">Balance</label>
+              <input type="number" formControlName="balance" class="form-control custom-input" id="balance">
+              <div *ngIf="newAccountFormGroup.controls['balance']?.touched && newAccountFormGroup.controls['balance']?.errors?.['required']" class="text-danger mt-2">
+                <i class="bi bi-exclamation-circle-fill me-2"></i> Balance is required!
+              </div>
             </div>
-            <div class="mb-3" *ngIf="newAccountFormGroup.value.type == 'CurrentAccount'">
-              <label class="form-label">OverDraft :</label>
-              <input type="number" formControlName="overDraft" class="form-control">
-              <span class="text-danger"
-                    *ngIf="newAccountFormGroup.controls['overDraft']?.touched
-                  && newAccountFormGroup.controls['overDraft']?.errors
-                   && newAccountFormGroup.controls['overDraft']?.errors!['required']">
-              Over Draft Is Required
-            </span>
+
+            <!-- Overdraft Input (for Current Account) -->
+            <div class="mb-4" *ngIf="newAccountFormGroup.value.type == 'CurrentAccount'">
+              <label for="overDraft" class="form-label custom-label">Overdraft</label>
+              <input type="number" formControlName="overDraft" class="form-control custom-input" id="overDraft">
+              <div *ngIf="newAccountFormGroup.controls['overDraft']?.touched && newAccountFormGroup.controls['overDraft']?.errors?.['required']" class="text-danger mt-2">
+                <i class="bi bi-exclamation-circle-fill me-2"></i> Overdraft is required!
+              </div>
             </div>
-            <div class="mb-3" *ngIf="newAccountFormGroup.value.type == 'SavingAccount'">
-              <label class="form-label">Interest Rate :</label>
-              <input type="number" formControlName="interestRate" class="form-control">
-              <span class="text-danger"
-                    *ngIf="newAccountFormGroup.controls['interestRate']?.touched
-                  && newAccountFormGroup.controls['interestRate']?.errors
-                   && newAccountFormGroup.controls['interestRate']?.errors!['required']">
-              Interest Rate Is Required
-            </span>
+
+            <!-- Interest Rate Input (for Saving Account) -->
+            <div class="mb-4" *ngIf="newAccountFormGroup.value.type == 'SavingAccount'">
+              <label for="interestRate" class="form-label custom-label">Interest Rate</label>
+              <input type="number" formControlName="interestRate" class="form-control custom-input" id="interestRate">
+              <div *ngIf="newAccountFormGroup.controls['interestRate']?.touched && newAccountFormGroup.controls['interestRate']?.errors?.['required']" class="text-danger mt-2">
+                <i class="bi bi-exclamation-circle-fill me-2"></i> Interest rate is required!
+              </div>
             </div>
-            <div>
-              <label for="customer" class="form-label">Customer:</label>
-              <select id="customer" class="form-select" formControlName="customer">
+
+            <!-- Customer Selection -->
+            <div class="mb-4">
+              <label for="customer" class="form-label custom-label">Customer</label>
+              <select id="customer" class="form-select custom-input" formControlName="customer">
                 <option *ngFor="let customer of customers" [value]="customer.id">{{ customer.name }}</option>
               </select>
             </div>
-            <div class="btn-group mt-4" role="group" aria-label="Basic outlined example">
-              <a type="button" (click)="goBack()" class="btn btn btn-outline-info" routerLink="/customers">
-                Back
-              </a>
-            </div>
-            <div class="btn-group mt-4 ms-4" role="group" aria-label="Basic outlined example">
-              <button type="submit" class="btn btn-outline-success">
-                Save
-              </button>
+
+            <!-- Action Buttons -->
+            <div class="d-flex justify-content-between mt-4">
+              <button type="button" class="btn btn-outline-danger btn-lg custom-button" routerLink="/customers">Back</button>
+              <button type="submit" class="btn btn-primary btn-lg custom-button" [disabled]="!newAccountFormGroup.valid">Save</button>
             </div>
           </form>
         </div>

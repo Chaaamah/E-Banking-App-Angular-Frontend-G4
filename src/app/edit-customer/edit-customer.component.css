@@ -8,19 +8,27 @@
 /* Carte personnalisée */
 .custom-card {
   border-radius: 16px;
-  background: #f9f9f9;
+  background: #f8f9fa;
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
 }
 
 /* En-tête de la carte */
 .custom-card-header {
-  background: linear-gradient(90deg, #4facfe, #00f2fe);
+  background: linear-gradient(90deg, #6a11cb, #2575fc); /* Dégradé de bleu-violet */
   color: white;
   padding: 16px;
   border-top-left-radius: 16px;
   border-top-right-radius: 16px;
 }
 
+.custom-card-title {
+  font-size: 1.6rem;
+  font-weight: 600;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+
+/* Corps de la carte */
 .custom-card-body {
   background: white;
   border-radius: 12px;
@@ -44,7 +52,7 @@
 }
 
 .custom-input:focus {
-  border-color: #2575fc;
+  border-color: #2575fc; /* Bleu pour l'effet de focus */
   outline: none;
 }
 
@@ -52,6 +60,7 @@
 .text-danger {
   font-size: 0.9rem;
   font-weight: 500;
+  color: #ff5252; /* Rouge pour les messages d'erreur */
 }
 
 .custom-button {
@@ -64,7 +73,7 @@
 }
 
 .custom-button:disabled {
-  background-color: #cccccc;
+  background-color: #cccccc; /* Couleur pour le bouton désactivé */
 }
 
 /* Boutons */
@@ -95,9 +104,106 @@
   gap: 16px;
 }
 
-/* Réactivité */
-@media (max-width: 768px) {
-  .custom-card-body {
-    padding: 20px;
-  }
+/* Barre de recherche */
+.search-container {
+  padding: 16px;
+  background: #eef2f7;
+  border-radius: 16px;
+  border-bottom: 1px solid #d1d9e6;
+}
+
+.custom-search-field {
+  width: 100%;
+  border-radius: 8px;
+}
+
+.search-icon {
+  color: #2575fc; /* Icone couleur bleue */
+}
+
+/* Tableau */
+.table-container {
+  margin-top: 16px;
+  border-radius: 16px;
+  overflow: hidden;
+  background-color: white;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+}
+
+.custom-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 16px;
+}
+
+.mat-header-cell {
+  background-color: #f0f4ff;
+  color: #333;
+  font-weight: bold;
+  padding: 16px;
+  border-bottom: 2px solid #e0e6ed;
+  text-align: left;
+  font-size: 14px;
+  text-transform: uppercase;
+}
+
+.mat-cell {
+  padding: 16px;
+  border-bottom: 1px solid #e0e6ed;
+  font-size: 14px;
+  color: #555;
+}
+
+.mat-row:hover {
+  background-color: #f7faff;
+  cursor: pointer;
+}
+
+.mat-header-row {
+  background: #f1f5f9;
+}
+
+/* Pagination */
+.custom-paginator {
+  display: flex;
+  justify-content: flex-end;
+  padding: 16px;
+  background: #eef2f7;
+  border-top: 1px solid #d1d9e6;
+  border-bottom-left-radius: 16px;
+  border-bottom-right-radius: 16px;
+}
+
+.mat-paginator-container {
+  font-size: 14px;
+}
+
+.mat-paginator-range-label {
+  font-weight: bold;
+  color: #2575fc;
+}
+
+.mat-paginator-icon {
+  color: #00f2fe;
+}
+
+.mat-paginator-page-size {
+  color: #555;
+}
+
+.mat-paginator-navigation-button {
+  background: #f1f5f9;
+  border-radius: 50%;
+  margin: 0 4px;
+  transition: background 0.3s ease;
+}
+
+.mat-paginator-navigation-button:hover {
+  background: #eef2f7;
+}
+
+/* Conteneur de chargement */
+.loading-container {
+  text-align: center;
+  padding: 20px;
 }

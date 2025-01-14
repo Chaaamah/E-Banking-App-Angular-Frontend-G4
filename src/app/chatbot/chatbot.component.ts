@@ -9,6 +9,7 @@ import { HttpClient } from '@angular/common/http';
 export class ChatbotComponent {
   userInput: string = '';
   messages: { text: string, isUser: boolean }[] = [];
+  isLoading: any;
 
   constructor(private http: HttpClient) {}
 

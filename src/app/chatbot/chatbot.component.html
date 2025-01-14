@@ -4,6 +4,25 @@
       <p [class.user]="message.isUser">{{ message.text }}</p>
     </div>
   </div>
-  <input [(ngModel)]="userInput" placeholder="Posez votre question..." />
-  <button (click)="sendMessage()">Envoyer</button>
+
+  <!-- Zone de saisie et bouton -->
+  <div class="chatbot-input-container">
+    <input
+      [(ngModel)]="userInput"
+      placeholder="Posez votre question..."
+      [attr.disabled]="isLoading ? true : null"
+      [ngClass]="{'disabled-input': isLoading}"
+    />
+    <button
+      (click)="sendMessage()"
+      [disabled]="!userInput || isLoading"
+      class="chatbot-send-button">
+      <mat-icon>send</mat-icon>
+    </button>
+  </div>
+
+  <!-- Indicateur de chargement -->
+  <div *ngIf="isLoading" class="loading-indicator">
+    <mat-spinner diameter="20"></mat-spinner> En attente...
+  </div>
 </div>
