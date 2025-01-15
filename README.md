@@ -1,27 +1,72 @@
-# FrontendBank
+# E-Banking App - Angular Frontend (Groupe 4)
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 17.3.1.
+Ce projet représente l'interface utilisateur pour une application de gestion bancaire. Il a été développé en Angular et intègre diverses fonctionnalités pour gérer les clients, les comptes, et les opérations bancaires, tout en offrant une expérience utilisateur fluide et efficace.
 
-## Development server
+## Fonctionnalités principales
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+### 1. Gestion des clients
+- Ajout de nouveaux clients.
+- Suppression de clients existants.
+- Édition des informations des clients.
+- Recherche avancée des clients.
+- Consultation de la liste des comptes par clients.
 
-## Code scaffolding
+### 2. Gestion des comptes
+- Création et ajout de nouveaux comptes bancaires.
+- Recherche et administration des comptes existants.
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+### 3. Gestion des comptes et mots de passe
+- Possibilité pour les utilisateurs de changer leur mot de passe via l'application.
 
-## Build
+### 4. Dashboard interactif
+- Création d'un tableau de bord dynamique en utilisant **ChartJS** (ng-chart).
+- Affichage de graphiques et de statistiques utiles pour aider à la prise de décision.
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+### 5. Authentification
+- Autres fonctionnalités pour enrichir l'application selon les besoins futurs.
 
-## Running unit tests
+## Prérequis
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+- **Node.js** : Version 16 ou supérieure
+- **Angular CLI** : Version 15 ou supérieure
+- **IDE** : Intellij IDEA
 
-## Running end-to-end tests
+## Installation et Lancement
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+1. Clonez le dépôt :
+   ```bash
+   git clone https://github.com/Chaaamah/E-Banking-App-Angular-Frontend-G4.git
+   ```
+2. Accédez au dossier du projet :
+   ```bash
+   cd E-Banking-App-Angular-Frontend-G4
+   ```
+3. Installez les dépendances :
+   ```bash
+   npm install
+   ```
+4. Lancez le serveur de développement :
+   ```bash
+   ng serve
+   ```
+5. Accédez à l'application via [http://localhost:4200](http://localhost:4200).
 
-## Further help
+## Structure du projet
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+- `src/app`
+  - Contient les composants principaux de l'application.
+- `src/environments`
+  - Contient les configurations pour les différents environnements (développement et production).
+
+## Membres du projet
+
+- Chaima AGOUMI
+- BACHRI Fatima Ezzahra
+- BOUANGA Nelle Kelly
+- Jalila BIZALINE
+- ER-RAGRAGY Boutaina
+- Safaa FEKNI
+
+## Licence
+
+Ce projet est réalisé dans le cadre académique et n'est pas destiné à une utilisation commerciale.
