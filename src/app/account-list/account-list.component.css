@@ -1,0 +1,133 @@
+/* Conteneur principal */
+.container {
+  max-width: 1200px;
+  margin: auto;
+  padding: 20px;
+}
+
+/* Carte */
+.card {
+  border-radius: 16px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  background-color: #ffffff;
+  padding: 20px;
+}
+
+/* En-tête de la carte */
+.card-header {
+  background: linear-gradient(90deg, #6a11cb, #2575fc);
+  color: white;
+  text-align: center;
+  font-size: 1.5rem;
+  font-weight: bold;
+  padding: 15px;
+  border-top-left-radius: 16px;
+  border-top-right-radius: 16px;
+}
+
+/* Corps de la carte */
+.card-body {
+  background: #f8f9fa;
+  border-radius: 12px;
+  padding: 20px;
+}
+
+/* Tableau */
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  background-color: #fff;
+}
+
+.table th,
+.table td {
+  padding: 12px;
+  text-align: left;
+  font-size: 1rem;
+}
+
+.table th {
+  background-color: #f0f4ff;
+  color: #333;
+  font-weight: bold;
+}
+
+.table td {
+  background-color: #ffffff;
+  border-bottom: 1px solid #e0e6ed;
+}
+
+.table .text-end {
+  text-align: right;
+}
+
+.table .badge {
+  font-size: 0.9rem;
+  padding: 6px 12px;
+  text-transform: capitalize;
+}
+
+/* Badge couleur */
+.bg-success {
+  background-color: #28a745 !important;
+  color: white;
+}
+
+.bg-danger {
+  background-color: #dc3545 !important;
+  color: white;
+}
+
+/* Message d'erreur et de chargement */
+.text-start {
+  margin-top: 20px;
+  font-size: 1.1rem;
+}
+
+.text-capitalize {
+  text-transform: capitalize;
+}
+
+.text-success {
+  color: #28a745;
+}
+
+.text-bg-danger {
+  background-color: #f8d7da;
+  color: #721c24;
+  padding: 15px;
+  border-radius: 5px;
+  font-size: 1.1rem;
+}
+
+.spinner-border {
+  width: 3rem;
+  height: 3rem;
+  border-width: 0.3em;
+}
+
+.spinner-border.text-info {
+  color: #17a2b8;
+}
+
+/* Réactivité */
+@media (max-width: 768px) {
+  .table th,
+  .table td {
+    font-size: 0.9rem;
+    padding: 8px;
+  }
+
+  .card-body {
+    padding: 15px;
+  }
+
+  .text-start {
+    font-size: 1rem;
+  }
+
+  .card-header {
+    font-size: 1.2rem;
+    padding: 10px;
+  }
+}
