@@ -5,39 +5,38 @@ Ce projet représente l'interface utilisateur pour une application de gestion ba
 ## Fonctionnalités principales
 
 ### 1. Authentification
-- Autres fonctionnalités pour enrichir l'application selon les besoins futurs.
-- <img src="Captures/img.png">
+<img src="Captures/img.png">
 
 ### 2. Dashboard interactif
 - Création d'un tableau de bord dynamique en utilisant **ChartJS** (ng-chart).
 - Affichage de graphiques et de statistiques utiles pour aider à la prise de décision.
-- <img src="Captures/img_1.png">
+<img src="Captures/img_1.png">
 
 ### 3. Chatbot
 <img src="Captures/img_11.png">
 
 ### 4. Gestion des clients
 - Ajout de nouveaux clients.
-- <img src="Captures/img_6.png">
+<img src="Captures/img_6.png">
 - Suppression de clients existants.
-- <img src="Captures/img_7.png">
+<img src="Captures/img_7.png">
 - Édition des informations des clients.
-- <img src="Captures/img_8.png">
+<img src="Captures/img_8.png">
 - Recherche avancée des clients.
-- <img src="Captures/img_9.png">
+<img src="Captures/img_9.png">
 - Consultation de la liste des comptes par clients.
-- <img src="Captures/img_10.png">
+<img src="Captures/img_10.png">
 
 ### 5. Gestion des comptes
 - Création et ajout de nouveaux comptes bancaires.
-- <img src="Captures/img_3.png">
+<img src="Captures/img_3.png">
 - Recherche et consultation des comptes existants.
-- <img src="Captures/img_4.png">
-- <img src="Captures/img_5.png">
+<img src="Captures/img_4.png">
+<img src="Captures/img_5.png">
 
 ### 6. Gestion des comptes et mots de passe
 - Possibilité pour les utilisateurs de changer leur mot de passe via l'application.
-- <img src="Captures/img_2.png">
+<img src="Captures/img_2.png">
 
 ## Prérequis
 
@@ -74,12 +73,12 @@ Ce projet représente l'interface utilisateur pour une application de gestion ba
 
 ## Membres du projet
 
-- Chaima AGOUMI
-- BACHRI Fatima Ezzahra
-- BOUANGA Nelle Kelly
-- Jalila BIZALINE
-- ER-RAGRAGY Boutaina
-- Safaa FEKNI
+- **AGOUMI Chaima**
+- **BACHRI Fatima Ezzahra**
+- **BOUANGA Nelle Kelly**
+- **BIZALINE Jalila**
+- **ER-RAGRAGY Boutaina**
+- **FEKNI Safaa**
 
 ## Licence
 
