@@ -15,6 +15,7 @@ import {TemplateComponent} from "./template/template.component";
 import {CustomerAccountsComponent} from "./customer-accounts/customer-accounts.component";
 import {ChatbotComponent} from "./chatbot/chatbot.component";
 import {NewAccountComponent} from "./new-account/new-account.component";
+import {AccountListComponent} from "./account-list/account-list.component";
 
 const routes: Routes = [
   {path: "login", component: LoginComponent},
@@ -33,6 +34,7 @@ const routes: Routes = [
       {path: "edit-customer/:id", component: EditCustomerComponent},
       {path: "chatbot", component: ChatbotComponent},
       {path: "new-account", component: NewAccountComponent},
+      {path: "customer-accounts/:id", component: AccountListComponent},
       {path: "home", component: HomeComponent},
     ]
   },

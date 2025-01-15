@@ -20,13 +20,13 @@ export interface AccountOperation {
 }
 
 export interface Account {
-  type: string
-  id: string
-  balance: number
-  creationDate: string
-  status: string
-  customerDTO: Customer
-  overdraft?: number
-  rate?: number
+  type: string;
+  id: string;
+  balance: number;
+  creationDate: Date; // Utilisez `createdDate` au lieu de `creationDate`
+  status: string;
+  customerDTO: Customer;
+  overDraft?: number; // Utilisez `overDraft` au lieu de `overdraft`
+  interestRate?: number; // Utilisez `interestRate` au lieu de `rate`
 }
 

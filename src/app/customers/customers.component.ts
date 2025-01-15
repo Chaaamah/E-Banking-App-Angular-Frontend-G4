@@ -87,6 +87,7 @@ export class CustomersComponent implements OnInit {
   }
 
   viewCustomerAccounts(customer: Customer) {
-    this.router.navigate(['/customer-accounts', customer.id]);  // Change '/customer-accounts' to the actual route
+    const customerId = customer.id; // Récupérez l'ID du client
+    this.router.navigate(['/admin/customer-accounts', customerId]); // Redirigez vers account-list avec l'ID du client
   }
 }

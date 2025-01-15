@@ -34,6 +34,7 @@ import { ProfilComponent } from './profil/profil.component';
 import {MatAccordion, MatExpansionModule} from "@angular/material/expansion";
 import { TemplateComponent } from './template/template.component';
 import { ChatbotComponent } from './chatbot/chatbot.component';
+import { AccountListComponent } from './account-list/account-list.component';
 
 @NgModule({
   declarations: [
@@ -50,6 +51,7 @@ import { ChatbotComponent } from './chatbot/chatbot.component';
     ProfilComponent,
     TemplateComponent,
     ChatbotComponent,
+    AccountListComponent,
   ],
   imports: [
     BrowserModule,

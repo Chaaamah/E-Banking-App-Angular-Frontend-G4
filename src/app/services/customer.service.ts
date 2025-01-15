@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import {HttpClient} from "@angular/common/http";
 import {Observable} from "rxjs";
 import {Customer} from "../model/customer.model";
+import {Account} from "../model/account.model";
 
 @Injectable({
   providedIn: 'root'
@@ -34,5 +35,10 @@ export class CustomerService {
 
   public updateCustomer(customer: Customer):Observable<Customer>{
     return this.http.put<Customer>(this.host+`/customers/${customer.id}`, customer);
+  }
+
+  public getAccountsByCustomer(customerId: number): Observable<Account[]> {
+
+    return  this.http.get<Account[]>(this.host + "/customers/" + customerId + "/accounts");
   }
 }

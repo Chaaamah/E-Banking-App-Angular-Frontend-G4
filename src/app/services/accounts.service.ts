@@ -53,4 +53,8 @@ export class AccountsService {
     const data = { initialBalance: balance, interestRate };
     return this.http.post(`${this.host}/customers/${customerId}/saving-accounts`, data);
   }
+
+  getAccountsByCustomerId(customerId: number): Observable<Account[]> {
+    return this.http.get<Account[]>(`${this.host}/customers/${customerId}/accounts`);
+  }
 }
